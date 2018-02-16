@@ -8,7 +8,7 @@ require 'scraperwiki/simple_html_dom.php';
 	foreach($browser->find("//td/div[@class='browselist']/")as $element)
 	{
 	$page 		=	$element->find("a[plaintext^=Andhra High Court]",0)->href;
-	$pagetext	=	$element->find("a[plaintext^=Andhra High Court]	",0)->plaintext;
+	$pagetext	=	$element->find("a[plaintext^=Andhra High Court]",0)->plaintext;
 	
 	if($page)
 	{	
@@ -43,6 +43,7 @@ require 'scraperwiki/simple_html_dom.php';
 					$RecordLoop+=  1;
 					$paginationlink		=	$urlofpage.'&pagenum='.$RecordLoop;
 					$mainpageofprofiles 		=	file_get_html($paginationlink);
+					sleep(4);
 					$checkerprofile	=	$mainpageofprofiles->find("/html/body/div/div[3]/form/input[3]",0);
 			
 			
